@@ -1,18 +1,63 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MyContext } from '../../context-api/myContext';
+import { FaImage } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
+export default function Navbar() {
+    const { loginStatus, setLoginStatus } = useContext(MyContext)
 
+    function handleLogin() {
+        setLoginStatus(true)
+    }
 
-export default function Navbar(){
-    return(
-        <div className="navbar">
-            <div className="logo">
-                <h1>Blog</h1>
-            </div>
-            <div className="nav-links">
-                <a href="/user-api/home">Home</a>
-                <a href="/user-api/new-article">New Article</a>
-                <a href="/user-api/user-profile">User Profile</a>
-            </div>
+    return (
+        <div className="header">
+            <nav className='container'>
+                <div className="left">
+                    <ul className="nav-menu">
+                        <li className="nav-item">
+                            <img src={FaImage} />
+                        </li>
+                        <li className="nav-item">
+                            Browse
+                        </li>
+                        <li className="nav-item">
+                            Community
+                        </li>
+                        <li className="nav-item">
+                            <input type="text" placeholder="Search"></input>
+                        </li>
+                    </ul>
+                </div>
+                <div className="right">
+                    <ul className="nav-menu">
+                        {
+                            loginStatus === true ? (
+                                <>
+                                    <li className="nav-item">
+                                        <Link to="/profile">Profile</Link>
+                                    </li>
+                                    <li className='nav-item'>
+                                        <button onClick={() => setLoginStatus(false)}>LogOut</button>
+                                    </li>
+                                </>
+                            ) :
+                                (
+                                    <>  <Link to='/user-api/login'>
+                                            <li className="nav-item">
+                                                <button onclick={handleLogin}>Login</button>
+                                            </li>
+                                        </Link>
+                                        <li className="nav-item">
+                                            <button>Register</button>
+                                        </li>
+                                    </>
+                                )
+
+                        }
+                    </ul>
+                </div>
+            </nav>
         </div>
     )
 }

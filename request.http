@@ -23,7 +23,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/user-api/new-article
+POST https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/user-api/new-article
 Content-Type: application/json
 
 {
@@ -32,7 +32,7 @@ Content-Type: application/json
     "articleDescription": "Urban legends are contemporary folklore that are told as true stories. Learn about urban legends and read about urban legends at HowStuffWorks.",
     "content":"lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla nec purus feugiat, vestibulum nunc id, tincidunt nunc . lorem30",   
     "username" : "test",
-    "genre":["horror"],
+    "genre":["Action"],
     "keywords":["horror","urban legends","folklore","scary stories","ghost stories","urban myths"],
     "rating":8,
     "ageGroup":"12-18",

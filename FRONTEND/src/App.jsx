@@ -8,7 +8,7 @@ import Article from './components/Article/Article'
 import NewArticle from './components/NewArticle/NewArticle'
 import UserProfile from './components/UserProfile/UserProfile'
 import ModifyArticle from './components/ModifyArticle/ModifyArticle'
-
+import Landing from './components/Landing/Landing'
 
 function App() {
 
@@ -16,6 +16,10 @@ function App() {
     path: '',
     element: <Root />,
     children: [
+      {
+        path:'',
+        element:<Landing/>
+      },
      {
       path: 'user-api',
       children:[

@@ -1,0 +1,43 @@
+* {
+    padding: 0%;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.homePageBackground {
+    background: url('https://img.freepik.com/premium-photo/light-blue-abstract-luxury-gradient-background_851755-322.jpg') no-repeat center center fixed, #f8f9fa;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    color: #f8f9fa;
+    background-color: black;
+    height: 15vh;
+    font-size: 0.8rem;
+}
+
+.MDBCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    max-width: 100%;
+    padding: 3.2rem 3.2rem 3.2rem 0;
+}
