@@ -6,7 +6,7 @@ routing
 /new-article - to create article
 /home/articleId  - view each article
 /user-profile/modify-article - to modify
-/user-profile/delete-article/:id - to sof delete
+/user-profile/delete-article/:id - to soft delete
 /user-profile - to show profile and soft delete
 
 
