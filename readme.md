@@ -52,3 +52,19 @@ doubts
 user profile
 soft delete routing
 
+article example
+
+{
+  "_id": {
+    "$oid": "65fdd998adc4fc3372c27618"
+  },
+  "articleId": "df176d06-ec5d-4cd9-96e7-1717e388949d",
+  "title": "pppp",
+  "description": "ppp",
+  "genre": "Romance",
+  "tags": "fjadklfjaklfj",
+  "ageGroup": "18+",
+  "content": "dfjajkfajklfjla\nfjadlkfjadlfjas",
+  "visibility": true,
+  "username": "ppp"
+}

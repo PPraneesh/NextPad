@@ -1,27 +1,28 @@
 .wrapper{
+    margin-top: 4.25rem;
     width: 420px;
     background: transparent;
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
     background: rgba( 255, 255, 255, 0.15 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+box-shadow: 0 8px 32px 0 rgba(33, 33, 33, 0.37);
 backdrop-filter: blur( 6px );
 -webkit-backdrop-filter: blur( 6px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
-.wrapper h1{
+h1{
     font-size: 36px;
     text-align: center;
 }
-.wrapper .input-box{
+.input-box{
     position: relative;
     width: 100%;
     height: 50px;
     margin: 30px 0;
 }
-.input-box input{
+.input{
     width: 100%;
     color: #fff;
     font-size: 16px;
@@ -62,13 +63,13 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .remember-forgot a:hover{
     text-decoration: underline;
 }
-.wrapper button{
-    width: 100%;
-    height: 45px;
+button{
+    width: 80px;
+    height: 30px;
     background: white;
     border: none;
     outline: none;
-    border-radius: 40px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,.1);
     cursor: pointer;
     font-size: 16px;
@@ -92,7 +93,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 .btn{
     color: white;
-    margin-left:50px;
+    margin-left:20px;
     margin-top: 20px;
     width: 70%;
     border-radius: 10px;
@@ -116,4 +117,8 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     background: url(https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg) no-repeat;
     background-size: cover;
     background-position: center;
+  }
+
+  .registerbtn{
+    margin-top: 1rem;
   }

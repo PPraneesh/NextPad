@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 const createUser = async (req, res) => {
   const usersCollection = req.app.get("usersCollection");
   const user = req.body;
-
   const dbuser = await usersCollection.findOne({ username: user.username });
   if (dbuser !== null) return res.send({ message: "User already exists" });
   const hashedPassword = await bcrypt.hash(user.password, 7); // put salt in env

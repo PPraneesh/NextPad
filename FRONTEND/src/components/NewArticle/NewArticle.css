@@ -1,0 +1,106 @@
+    .styled-select select{
+    background: transparent;
+    width: 268px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 10px;
+    height: 35px;
+    margin-left: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.584);
+}
+
+.input-box input::placeholder{
+    color:black;
+}
+
+.container{
+    width: 60vw;
+    margin-top: 3rem;
+}
+
+.contentInput{
+    height: 130px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.584);
+    padding: 10px;
+    margin-top: 10px;
+    opacity: 0.8;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* 
+.container {
+    width: 60vw;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-box {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.input-box textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.styled-select select {
+    background: transparent;
+    width: 268px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 10px;
+    height: 35px;
+    margin-left: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.584);
+}
+
+.input-box input::placeholder {
+    color: black;
+}
+
+.contentInput {
+    height: 150px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.584);
+    padding: 10px;
+    margin-top: 10px;
+    opacity: 0.8;
+    display: block;
+    width: 100%;
+}
+
+/* button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+} */
+
+/* button:hover {
+    background-color: #0056b3;
+} */ 

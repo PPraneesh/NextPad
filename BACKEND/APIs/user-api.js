@@ -18,7 +18,6 @@ userApp.use((req,res,next)=>{
 
 // to get articles
 userApp.get('/home',expressAsyncHandler(async(req,res)=>{
-    const articlesCollection = req.app.get('articlesCollection')
     const articles = await articlesCollection.find({visibility:true}).toArray()
     res.send({message:"articles",payload:articles})
 }))
@@ -26,9 +25,8 @@ userApp.get('/home',expressAsyncHandler(async(req,res)=>{
 
 //to get each article
 userApp.get('/home/:articleId',expressAsyncHandler(async(req,res)=>{
-    const articlesCollection = req.app.get('articlesCollection')
-    const id = req.params.id
-    const article = await articlesCollection.findOne({articleid:id})
+    let id = req.params.articleId
+    let article = await articlesCollection.findOne({articleId:id})
     res.send({message:"article",payload:article})
 }))
 
@@ -37,26 +35,31 @@ userApp.get('/home/:articleId',expressAsyncHandler(async(req,res)=>{
 
 
 //to add comments
-userApp.post('/comment/:articleId',expressAsyncHandler(async(req,res)=>{
-    const id = (+req.params.articleId)
-    const comment = req.body
-    await articlesCollection.updateOne({articleId:id},{ $push: { comments: comment } })
-    res.send({message:"comment added"})
-}))
+userApp.post('/comment/:articleId', expressAsyncHandler(async (req, res) => {
+    const id = Number(req.params.articleId);
+    const comment = req.body;
+    await articlesCollection.updateOne({ articleid: id }, { $push: { comments: comment } });
+    res.send({ message: "comment added" });
+}));
 
 
 //creating new articles
-userApp.post('/new-article',expressAsyncHandler(async(req,res)=>{
+userApp.post('/new-article', expressAsyncHandler(async (req, res) => {
     const article = req.body;
+    await usersCollection.updateOne({ username: article.username }, { $push: { articles: article.articleId } }).then(() => {
+        console.log('article added to user');
+    })
+    .catch((err) => {
+        console.log(err);
+    });
     await articlesCollection.insertOne(article);
-    res.send({message: 'Article created'})
-}))
-
+    res.send({ message: 'Article created' });
+}));
 
 //updating articles
 userApp.put("/modify-article",expressAsyncHandler(async(req,res)=>{
     const modifiedArticle = req.body;
-    await articlesCollection.updateOne({articleid:modifiedArticle.articleid},
+    await articlesCollection.updateOne({articleId:modifiedArticle.articleId},
         {$set: {...modifiedArticle}});
     res.send({message: 'Article modified'})
 }))
