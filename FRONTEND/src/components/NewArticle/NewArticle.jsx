@@ -38,11 +38,9 @@ export default function NewArticle() {
 
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <Link to='/user-api/home'>
                 <button type="submit">
                     Post
                 </button>
-                </Link>
                 <div className="input-box">
                     <input {...register("title")} type="text" placeholder="Title" required />
                 </div>

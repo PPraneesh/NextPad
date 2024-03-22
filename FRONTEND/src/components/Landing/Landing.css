@@ -1,32 +1,22 @@
 .landing {
     margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
+    height: 100vh;
+    width: 100vw;
 }
 
 .landing .container {
     display: flex;
+    width: 100%;
+    height: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
-    gap: 2rem;
+    margin: 0 auto;
+
 }
 
-.landing .container .left {
-    flex:1;
-    order: 1;
-    align-items: flex-start;
+h1{
+    margin-right: 4rem;
 }
-
-.landing .container .right {
-     flex: 1;
-    order: 2; 
-    align-items: flex-end;
-}
-
 .landing .container .btn {
     display: inline-block;
     padding: 0.78rem 1rem 2rem 1rem;
@@ -38,17 +28,22 @@
     text-decoration: none;
     font-size: 1rem;
     transition: background-color 0.3s ease;
+    margin-left: 2rem;
 }
 
 .landing .container .btn:hover {
     background-color: rgb(40, 41, 43);
 }
 
-.right {
+.landing .container .left {
+    margin-left: 3rem;
+}
+
+/* .right {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 150%;
     /* padding-left: 4rem; */
-}
+

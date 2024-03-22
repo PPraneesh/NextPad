@@ -24,8 +24,8 @@ userApp.get('/home',expressAsyncHandler(async(req,res)=>{
 //
 
 //to get each article
-userApp.get('/home/:articleId',expressAsyncHandler(async(req,res)=>{
-    let id = req.params.articleId
+userApp.get('/home/:arId',expressAsyncHandler(async(req,res)=>{
+    let id = req.params.arId
     let article = await articlesCollection.findOne({articleId:id})
     res.send({message:"article",payload:article})
 }))
