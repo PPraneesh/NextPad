@@ -56,7 +56,7 @@ export default function Article(){
                     <div className="comment-box">
                         <input {...register("comment")} type="text" placeholder="Comment" required />
                     </div>
-                    <button type='submit'>send</button>
+                    <button type='submit'>Comment</button>
                 </form>
                 <br />
             </div>
