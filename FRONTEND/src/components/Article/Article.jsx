@@ -51,7 +51,7 @@ export default function Article(){
                 <p>Creater: {article.username}</p>
             </div>
             <div className="addcomment">
-                <h3>Comment</h3>
+                <h3>Comments</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="comment-box">
                         <input {...register("comment")} type="text" placeholder="Comment" required />
