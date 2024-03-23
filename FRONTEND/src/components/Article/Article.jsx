@@ -9,7 +9,7 @@ export default function Article(){
     const { register, handleSubmit } = useForm();
     const [article, setArticle] = useState({});
     const { user, setUser } = useContext(userContext)
-    
+        const [comments, setComments] = useState([{}])
     let navigate = useNavigate()
     const {articleId} = useParams();
     useEffect(()=>{
@@ -21,7 +21,7 @@ export default function Article(){
             console.log(err)
         })
     }
-    ,[])
+    ,[comments])
     console.log("article",article)
 
     function onSubmit(data){
@@ -30,6 +30,7 @@ export default function Article(){
             username: user.username,
             articleId: articleId
         }
+        setComments([...comments, data])
         axios.post(`https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/user-api/comment/${articleId}`, data)
             .then(res => {
                 navigate(`/user-api/home/${articleId}`)
@@ -44,11 +45,10 @@ export default function Article(){
 
             <div className='articlepage'>
                 <h1>{article.title}</h1>
-                <p>{article.description}</p>
-                <p>{article.genre}</p>
+                <h3>Description: {article.description}</h3>
+                <h3>Genre: {article.genre}</h3>
                 <p>{article.content}</p>
-                <p>{article.username}</p>
-                <p>{article.date}</p>
+                <p>Creater: {article.username}</p>
             </div>
             <div className="addcomment">
                 <h3>Comment</h3>
@@ -61,10 +61,10 @@ export default function Article(){
                 <br />
             </div>
             <div className="comments">
-                <h3>comments</h3>
+                <h3>User Comments</h3>
                 {article.comments && article.comments.map((comment, index) => (
-                    <div key={index}>
-                        <h3>{comment.username}</h3>
+                    <div key={index} className='comment-card'>
+                        <h3>{index+1}. {comment.username}</h3>
                         <p>{comment.comment}</p>
                     </div>
                 ))}

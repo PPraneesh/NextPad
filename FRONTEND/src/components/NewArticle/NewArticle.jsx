@@ -84,7 +84,8 @@ export default function NewArticle() {
                     </div>
                 </div>
                 <div className="input-box" >
-                    <textarea {...register("content")} type="text" className='contentInput' placeholder="Content" required />
+                    <label htmlFor="content" color='white'>Content: </label>
+                    <textarea {...register("content")} type="text" className='contentInput' />
                 </div>
 
             </form>

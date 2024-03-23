@@ -122,3 +122,16 @@ button{
   .registerbtn{
     margin-top: 1rem;
   }
+
+.input-box-genre{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap:20px;
+}
+  /* regiseter css above */
+
+.checkbox-input{
+    width:20px;
+    height:auto;
+    border-radius:5px;
+}

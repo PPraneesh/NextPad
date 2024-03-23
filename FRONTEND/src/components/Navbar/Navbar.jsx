@@ -39,7 +39,7 @@ export default function Navbar() {
                                 <>
                                     <Link to='/user-api/new-article'>
                                         <li className="nav-item">
-                                            <button className='bbb'>New Article</button>
+                                            <button className='bbb'>Write</button>
                                         </li>
                                     </Link>
                                     <li className="nav-item">

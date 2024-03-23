@@ -15,30 +15,27 @@ export default function UserProfile(){
     },[])
     console.log(user)
     return(
-        <div>
-            <div className='profile-card'>
-            
-
-            </div>
-            <div class="card" >
-            
-            <div class="card-body">
-<h5>User Info</h5>
-            <p class="card-text">
-            <h1>User Profile</h1>
-            <h2>Username: {user.username}</h2>
-            <h2>Name: {user.name}</h2>
-            <h2>Email: {user.email}</h2>
-            </p>
+        
+        <div className="row">
+            <div className="col" id="a1">
+            <div className="card">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/026/619/142/small_2x/default-avatar-profile-icon-of-social-media-user-photo-image-vector.jpg" alt="card-img" classname="card-img-top"/>
+            <div className="card-body">
+            <div className="card-text">
+            <h3>User Profile</h3>
+            <h4>Username: {user.username}</h4>
+            <h4>Name: {user.name}</h4>
+            <h4>Email: {user.email}</h4>
             </div>
             </div>
-            
-            <div>
+            </div>
+            </div>
+            <div className="col" id="a2">
             <h2>Your articles</h2>
 {
     user.articles.map((articleId, index) => {
         return articles.filter(article => article.articleId === articleId)
-            .map((article, index) => {
+        .map((article, index) => {
                 return (
                     <div className="article" key={article.articleId}>
                         <h3>{article.title}</h3>
@@ -46,9 +43,9 @@ export default function UserProfile(){
                     </div>
                 )
             })
-    })
+        })
 }
-            </div>
-        </div>
+    </div>
+    </div>
     )
 }

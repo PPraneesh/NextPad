@@ -17,6 +17,7 @@
 
 .h-row{
     display: flex;
+
     margin-top: 2vh;
 }
 
@@ -28,4 +29,14 @@
     margin: 10px;
     background-color: rgba(239, 28, 246, 0.29);
     color: rgb(0, 0, 0);
+    background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.h-row-all{
+    display: flex;
+    flex-wrap: wrap;
 }

@@ -46,6 +46,21 @@ export default function Home() {
                         )
                     })
                 }
+                <div className='h-col'>
+                <h3>All articles</h3>
+        <div className="h-row-all">
+          {
+            articles.map((article) => (
+              <div className="article" key={article.articleId}>
+                <Link to={`/user-api/home/${article.articleId}`}>
+                  <h4>{article.title}</h4>
+                </Link>
+                <p>{article.description}</p>
+              </div>
+            ))
+          }
+        </div>
+                </div>
             </div>
 
         </div>

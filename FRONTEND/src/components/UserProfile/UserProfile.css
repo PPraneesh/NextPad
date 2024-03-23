@@ -1,3 +1,24 @@
-.profile-card {
-    width:100%;
+.card-img-top{
+    height:100px;
+}
+.card{
+    margin-top:70px;
+    margin-right:40px;
+    background: rgba( 255, 255, 255, 0.4 );
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+backdrop-filter: blur( 6px );
+-webkit-backdrop-filter: blur( 6px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.mainrow{
+    display:flex;
+    justify-content:space-between;
+}
+#a1{
+    float:left;
+}
+#a2{
+    float:right;
+    margin-top:100px;
 }

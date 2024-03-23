@@ -37,7 +37,7 @@ textarea:focus, input:focus{
     background: transparent;
 }
 
-.content-input::placeholder{
+.input-box .content-input input::placeholder{
     color: black;
 }
 /* 
