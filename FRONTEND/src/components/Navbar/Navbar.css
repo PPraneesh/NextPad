@@ -1,22 +1,13 @@
 .navbar{
     background-color: rgba(241, 160, 184, 0.822);
     height: 60px;
-    width: 100%;
+    width: 100vw;
     position: fixed;
     top: 0;
     z-index: 10;
     right:0;
 }
-    
-.navbar .container{
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    padding: 0 ;
-    margin: 0;
-}
+
 
 .bbb{
     width: 110px;
@@ -46,7 +37,6 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-
 }
 
 .navbar .container img{

@@ -16,6 +16,7 @@ export default function NewArticle() {
             articleId: uuidv4(),
             ...data,
             visibility: true,
+            comments:[],
             username: user.username
         }
         console.log(data)

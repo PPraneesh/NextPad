@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from 'react';
 import { MyContext } from '../../context-api/myContext';
 import { userContext } from '../../context-api/userContext';
 import { Link } from 'react-router-dom';
+import './Home.css'
 
 export default function Home() {
     const {loginStatus, setLoginStatus}= useContext(MyContext)
@@ -17,22 +18,22 @@ export default function Home() {
         })
     },[])
     return (
-        <div>
+        <div className='homediv'>
             <h1>hey {user.name}</h1>
             <div className="page">
                 {
                     user.genre.map((genre,index)=>{
                         return (
-                            <div className="col" key={index}>
-                                <h2>{genre} articles</h2>
-                                <div className="row">
+                            <div className="h-col" key={index}>
+                                <h3>{genre} articles</h3>
+                                <div className="h-row">
                                     {
                                         articles.map((article)=>{
                                             if(article.genre === genre){
                                                 return (
                                                     <div className="article" key={article.articleId}>
                                                         <Link to={`/user-api/home/${article.articleId}`}>
-                                                            <h3>{article.title}</h3>
+                                                            <h4>{article.title}</h4>
                                                         </Link>
                                                         <p>{article.description}</p>
                                                     </div>

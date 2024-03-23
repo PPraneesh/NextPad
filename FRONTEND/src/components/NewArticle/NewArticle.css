@@ -15,6 +15,10 @@
     color:black;
 }
 
+textarea:focus, input:focus{
+    color: black;
+}
+
 .container{
     width: 60vw;
     margin-top: 3rem;
@@ -30,8 +34,12 @@
     display: block;
     width: 100%;
     margin-top: 10px;
+    background: transparent;
 }
 
+.content-input::placeholder{
+    color: black;
+}
 /* 
 .container {
     width: 60vw;

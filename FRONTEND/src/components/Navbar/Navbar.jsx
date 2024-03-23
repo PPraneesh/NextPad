@@ -14,7 +14,7 @@ export default function Navbar() {
     }
     return (
         <div className="navbar">
-            <div className="container">
+
                 <div className="left">
                     {/* <ul className="nav-menu">
                         <li className="nav-item">
@@ -30,7 +30,7 @@ export default function Navbar() {
                     
                 </div>
                 <div className="center">
-                <input type="text" placeholder='Search Articles...' className='searchbar' />
+                    <input type="text" placeholder='Search Articles...' className='searchbar' />
                 </div>
                 <div className="right">
                     <ul className="nav-menu">
@@ -70,7 +70,6 @@ export default function Navbar() {
                         }
                     </ul>
                 </div>
-            </div>
         </div>
     )
 }

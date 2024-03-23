@@ -24,9 +24,9 @@ userApp.get('/home',expressAsyncHandler(async(req,res)=>{
 //
 
 //to get each article
-userApp.get('/home/:arId',expressAsyncHandler(async(req,res)=>{
-    let id = req.params.arId
-    let article = await articlesCollection.findOne({articleId:id})
+userApp.get('/home/:articleId',expressAsyncHandler(async(req,res)=>{
+    let id = req.params.articleId
+    const article = await articlesCollection.findOne({articleId:id})
     res.send({message:"article",payload:article})
 }))
 
@@ -36,9 +36,9 @@ userApp.get('/home/:arId',expressAsyncHandler(async(req,res)=>{
 
 //to add comments
 userApp.post('/comment/:articleId', expressAsyncHandler(async (req, res) => {
-    const id = Number(req.params.articleId);
+    const id = (req.params.articleId);
     const comment = req.body;
-    await articlesCollection.updateOne({ articleid: id }, { $push: { comments: comment } });
+    let r= await articlesCollection.updateOne({ articleId: id }, { $push: { comments: comment } })
     res.send({ message: "comment added" });
 }));
 
