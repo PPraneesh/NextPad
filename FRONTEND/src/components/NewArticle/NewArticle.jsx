@@ -5,7 +5,8 @@ import axios from 'axios';
 import './NewArticle.css';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
+const url = "http://localhost:3000/"
 
 export default function NewArticle() {
     const { register, handleSubmit } = useForm();
@@ -20,7 +21,7 @@ export default function NewArticle() {
             username: user.username
         }
         console.log(data)
-        axios.post('https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/user-api/new-article', data)
+        axios.post(url+'user-api/new-article', data)
             .then(res => {
                 console.log(res.data)
                 navigate('/user-api/home')
@@ -34,12 +35,9 @@ export default function NewArticle() {
         <div className='container'>
             <div>
                 <h1>Create New Article</h1>
-
-
-
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <button type="submit">
+                <button className='nav-button' type="submit">
                     Post
                 </button>
                 <div className="input-box">

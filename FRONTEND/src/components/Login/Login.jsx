@@ -1,4 +1,4 @@
-import {React, useContext,useState} from "react";
+import {useContext,useState} from "react";
 import { set, useForm } from "react-hook-form";
 import { FaUser, FaLock } from "react-icons/fa";
 import './LoginForm.css';
@@ -8,6 +8,7 @@ import {userContext} from "../../context-api/userContext"
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+const url = "http://localhost:3000/"
 
 function Login() {
   const { register, handleSubmit } = useForm();
@@ -16,7 +17,7 @@ function Login() {
   let {user, setUser} = useContext(userContext)
   let navigate = useNavigate();
   const onSubmit = data => {
-    axios.post('https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/user-api/login', data)
+    axios.post(url+'user-api/login', data)
     .then(res => {
       if(res.data.message === "Invalid username") 
       setError("Invalid username")
@@ -35,6 +36,7 @@ function Login() {
   }
 
   return (
+    <div className="form-container">
     <div className="wrapper">
       <form onSubmit={handleSubmit(onSubmit)}>
         {error.length !== 0 && <p className="error">{error}</p>}
@@ -52,10 +54,11 @@ function Login() {
         </button>
         <div className="register-link">
           <p>
-            Don't have an Account? <Link to='/user-api/register'>Register</Link>
+            Don`t have an Account? <Link to='/user-api/register'>Register</Link>
           </p>
         </div>
       </form>
+    </div>
     </div>
   )
 }

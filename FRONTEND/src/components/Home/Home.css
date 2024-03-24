@@ -1,32 +1,18 @@
-.homediv{
-    margin-top: 10vh;
-    
-}
-
 .page{
     width: 80vw;
     margin-top:5vh;
-    
 }
 
 .homediv h3{
     color:rgb(255, 255, 255);
 }
 
-
-
-.h-row{
-    display: flex;
-
-    margin-top: 2vh;
-}
-
 .article{
-    width: 20vw;
+    width: 22%;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
+    padding: 1rem;
+    margin: 1rem;
     background-color: rgba(239, 28, 246, 0.29);
     color: rgb(0, 0, 0);
     background: rgba( 255, 255, 255, 0.2 );
@@ -36,7 +22,7 @@
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
-.h-row-all{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr
+.genre-article-cont{
+    display: flex;
+    flex-wrap: wrap;
 }

@@ -1,4 +1,4 @@
-import {useContext,useState, React} from "react";
+import {useState} from "react";
 import Navbar from './Navbar/Navbar'
 // import Footer from './Footer/Footer'
 import { MyContext } from "../context-api/myContext";
@@ -14,7 +14,9 @@ export default function Root(){
             <userContext.Provider value={{user,setUser}}>
             <MyContext.Provider value={{loginStatus,setLoginStatus}}>
                 <Navbar/>
+                <div className="outlet-cont">
                 <Outlet />
+                </div>
                 {/* <Footer/> */}
             </MyContext.Provider>
             </userContext.Provider>

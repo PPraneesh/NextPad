@@ -1,10 +1,10 @@
 .wrapper{
-    margin-top: 4.25rem;
+    margin-top: 2rem;
     width: 50vw;
     background: transparent;
     color: #fff;
-    border-radius: 10px;
-    padding: 30px 40px;
+    border-radius: 1rem;
+    padding: 2rem 4rem;
     background: rgba( 255, 255, 255, 0.15 );
 box-shadow: 0 8px 32px 0 rgba(33, 33, 33, 0.37);
 backdrop-filter: blur( 6px );
@@ -41,21 +41,17 @@ h1{
     transform: translateY(-50%);
     font-size: 1rem;
 }
-.wrapper .remember-forgot{
-    display: flex;
-    justify-content: space-between;
-    font-size: 1rem;
-    margin: -15 0 15;
-}
+
 .genreContainer{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
 }
-button{
+.nav-button{
     width: 80px;
     height: 30px;
+    margin: 3px;
     background: white;
     border: none;
     outline: none;
@@ -98,11 +94,6 @@ button{
   }
   body{
     margin:0;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     background: url(https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg) no-repeat;
     background-size: cover;

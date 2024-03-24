@@ -1,23 +1,15 @@
-
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     background: url(https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/64daa97e949f9b40709b27b1_64da709470d2e21aeabe5cc4_website-security-checklist-what-actually-matters-in-2020-b.jpeg) no-repeat;
     background-size: cover;
     background-position: center;
 }
-
+.outlet-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 h1,
 h2,
 h3,
@@ -28,10 +20,6 @@ label {
     font-family: 'Poppins', sans-serif;
 }
 
-ul {
-    list-style: none;
-}
-
 a {
     text-decoration: none;
     color: var(--secondary);
@@ -39,7 +27,6 @@ a {
 
 h1 {
     font-size: 3rem;
-    margin-bottom: 1rem;
 }
 
 h2 {

@@ -1,10 +1,4 @@
-.landing {
-    margin-top: 1rem;
-    height: 100vh;
-    width: 100%;
-}
-
-.landing .container {
+.landingCont{
     display: flex;
     width: 100%;
     height: 100%;
@@ -14,37 +8,27 @@
 
 }
 
-h1{
+/* h1{
     margin-right: 4rem;
-}
-.landing .container .btn {
-    display: inline-block;
-    padding: 0.78rem 1rem 2rem 1rem;
+} */
+.land-btn {
     background-color: black;
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 0.8rem;
+    border-radius: 1rem;
     cursor: pointer;
     text-decoration: none;
-    font-size: 1rem;
     transition: background-color 0.3s ease;
-    /* margin-left: 2rem; */
 }
 
-.landing .container .btn:hover {
+/* .landing .container .btn:hover {
     background-color: rgba(172, 108, 173, 0.66);
-}   
+}    */
 
-.landing .container .left {
-    margin-left: 3rem;
-    align-items: left;
-}
-
-/* .right {
+.land-left {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    height: 150%;
-    /* padding-left: 4rem; */
-
+}

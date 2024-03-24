@@ -2,11 +2,11 @@
     margin: 0;
     padding: 0;
 }
-
-.wrapper {
+.form-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+.wrapper {
     width: 40%;
     background: transparent;
     color: #fff;

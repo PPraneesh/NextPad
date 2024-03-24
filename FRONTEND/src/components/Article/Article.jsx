@@ -5,6 +5,8 @@ import { userContext } from '../../context-api/userContext';
 import { useForm } from "react-hook-form";
 import { useNavigate,useParams } from 'react-router-dom';
 
+const url = "http://localhost:3000/"
+
 export default function Article(){
     const { register, handleSubmit } = useForm();
     const [article, setArticle] = useState({});
@@ -14,7 +16,7 @@ export default function Article(){
     const {articleId} = useParams();
     useEffect(()=>{
         console.log("articleId",articleId)
-        axios.get("https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/user-api/home/"+articleId).then(res => {
+        axios.get(url+"user-api/home/"+articleId).then(res => {
             setArticle(res.data.payload)
         })
         .catch(err => {
@@ -31,7 +33,7 @@ export default function Article(){
             articleId: articleId
         }
         setComments([...comments, data])
-        axios.post(`https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/user-api/comment/${articleId}`, data)
+        axios.post(`${url}user-api/comment/${articleId}`, data)
             .then(res => {
                 navigate(`/user-api/home/${articleId}`)
             }).catch(err => {

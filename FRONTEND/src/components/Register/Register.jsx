@@ -1,13 +1,12 @@
-import React, {useState, useContext} from "react";
+import {useState, useContext} from "react";
 import { useForm } from "react-hook-form";
-import { FaUser, FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import './Register.css';
 import axios from "axios";
 import { MyContext } from "../../context-api/myContext";
 import {userContext} from "../../context-api/userContext"
-import {Link} from 'react-router-dom'
 
+const url = "http://localhost:3000/"
 
 const genres = [
   'Fantasy', 'Humor', 'Mystery', 'Romance', 'Thriller', 'LGBTQ+', 'Horror', 'Sci-fi', 'Paranormal', 'Adventure', 'Poetry', 'Action'
@@ -37,7 +36,7 @@ const RegisterForm = () => {
       genre:selectedGenres,
       articles:[]
     }
-    axios.post("https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/user-api/register", data)
+    axios.post(url+"user-api/register", data)
     .then(res => {
       if(res.data.message==="User already exists"){
         setError("Username already exists")
@@ -56,6 +55,7 @@ const RegisterForm = () => {
   }
 
   return (
+    <div className="form-container">
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="wrapper">
         <div>
@@ -93,7 +93,7 @@ const RegisterForm = () => {
                     name="genre"
                     id={index}
                   />
-                  <label for={index}>{genre}</label>
+                  <label htmlFor={index}>{genre}</label>
                 </div>
               ))}
             </div>
@@ -102,6 +102,7 @@ const RegisterForm = () => {
         </div>
       </div>
     </form>
+      </div>
   );
               }
 export default RegisterForm;

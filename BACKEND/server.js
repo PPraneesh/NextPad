@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, '../FRONTEND/build')));
 
-mongoClient.connect("mongodb+srv://dumb13305:Pran1234@cluster0.rxzj569.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then((client) => {
+mongoClient.connect(process.env.MONGO_URI).then((client) => {
   const db = client.db("webathonDB");
   const usersCollection = db.collection("users");
   const articlesCollection = db.collection("articles");
