@@ -13,18 +13,6 @@ const genres = [
   'Fantasy', 'Humor', 'Mystery', 'Romance', 'Thriller', 'LGBTQ+', 'Horror', 'Sci-fi', 'Paranormal', 'Adventure', 'Poetry', 'Action'
 ];
 
-const GenreButton = ({ name, isSelected, toggleGenre }) => {
-  console.log(isSelected)
-  return (
-  <div className="col-4">
-    <button
-      className={`btn ${isSelected} ? 'btn-success' : 'btn-white'`}
-      onClick={() => toggleGenre(name)}
-    >
-      {name}
-    </button>
-  </div>
-)};
 
 const RegisterForm = () => {
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -56,10 +44,10 @@ const RegisterForm = () => {
       }
       else{
         console.log(res.data)
-        setUser(res.data)
+        setUser(res.data.payload)
         setLoginStatus(true)
+        navigate('/user-api/home')
       }
-      navigate('/user-api/home')
       
     }).catch(err => {
       console.log(err)
@@ -70,43 +58,53 @@ const RegisterForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="wrapper">
-          <div>
-            <h1>Register</h1>
-            {error.length !== 0 && <p className="error">{error}</p>}
-            <div className="input-box">
-              <label htmlFor="name">Name</label>
-              <input {...register("name")} type="text" className='input' required />
-            </div>
-            <div className="input-box">
-              <label htmlFor="email">Email address</label>
-              <input {...register("email")} type="email" className='input' required />
-            </div>
-            <div className="input-box">
-              <label htmlFor="username">Username</label>
-              <input {...register("username")} type="text" className='input' required />
-            </div>
-            <div className="input-box">
-              <label htmlFor="password">Password</label>
-              <input {...register("password")} type="password" className='input' required />
-            </div>
-            <div className="input-box">
-              <label htmlFor="age">Age</label>
-              <input {...register("age")} type="numeric" className='input' required />
-            </div>
-           
-            <button onClick={
-              ()=>{
-                  setStatus(!status)
-              }
-            } className='registerbtn'>
-              Next
-            </button>
+        <div>
+          <h1>Register</h1>
+          {error.length !== 0 && <p className="error">{error}</p>}
+          <div className="input-box">
+            <label htmlFor="name">Name</label>
+            <input {...register("name")} type="text" className='input' required />
           </div>
+          <div className="input-box">
+            <label htmlFor="email">Email address</label>
+            <input {...register("email")} type="email" className='input' required />
+          </div>
+          <div className="input-box">
+            <label htmlFor="username">Username</label>
+            <input {...register("username")} type="text" className='input' required />
+          </div>
+          <div className="input-box">
+            <label htmlFor="password">Password</label>
+            <input {...register("password")} type="password" className='input' required />
+          </div>
+          <div className="input-box">
+            <label htmlFor="age">Age</label>
+            <input {...register("age")} type="numeric" className='input' required />
+          </div>
+          <div className="input-box-genre">
+            <label htmlFor="genre">Genre</label>
+            <div className='checkboxgroup'>
+              {genres.map((genre,index) => (
+                <div className="checkbox-wrapper-47" key={genre}>
+                  <input
+                    type="checkbox"
+                    value={genre}
+                    onChange={handleGenreChange}
+                    name="genre"
+                    id={index}
+                  />
+                  <label for={index}>{genre}</label>
+                </div>
+              ))}
+            </div>
+          </div>
+          <button type="submit">Register</button>
+        </div>
       </div>
-    
     </form>
-  )
-}
-
+  );
+              }
 export default RegisterForm;
+
+
 

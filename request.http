@@ -93,3 +93,6 @@ Content-Type: application/json
     "username":"test",
     "text":"broo burra pichekki"
 }
+
+###
+PUT https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/user-api/delete-article/96fed696-a6c2-402f-a3be-a54a43406469

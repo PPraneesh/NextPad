@@ -32,11 +32,12 @@ h1{
 }
 
 .landing .container .btn:hover {
-    background-color: rgb(40, 41, 43);
-}
+    background-color: rgba(172, 108, 173, 0.66);
+}   
 
 .landing .container .left {
     margin-left: 3rem;
+    align-items: left;
 }
 
 /* .right {

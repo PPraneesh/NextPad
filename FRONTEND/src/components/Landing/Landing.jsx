@@ -7,7 +7,7 @@ export default function HomePage(){
     <div className='landing'>
       <div className="container">
           <div className="left">
-              <h1>Welcome to Our Creative Writing Platform</h1>
+              <h1>Welcome to NextPad <br />A Creative Writing Platform</h1>
               <p>Join our community of creative writers and share your work with fellow enthusiasts.</p>
               <p>Discover new literary pieces, receive valuable feedback, and grow as a writer or a reader.</p>
               <Link to="/user-api/login">

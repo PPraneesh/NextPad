@@ -25,7 +25,7 @@ export default function Navbar() {
                         </li>
                     </ul> */}
                     <Link to='/user-api/home'>
-                    <h2>NextPad</h2>
+                    <h2 className="textt">NextPad</h2>
                     </Link>
                     
                 </div>

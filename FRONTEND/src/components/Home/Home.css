@@ -37,6 +37,6 @@
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .h-row-all{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr
 }

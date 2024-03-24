@@ -66,10 +66,14 @@ userApp.put("/modify-article",expressAsyncHandler(async(req,res)=>{
 
 //soft delete
 userApp.put("/delete-article/:articleId",expressAsyncHandler(async(req,res)=>{
-let article = req.body;
-await articlesCollection.updateOne({articled:article.articleId},
-    {$set: {...article}});
-res.send({message: 'Article deleted'})
+    let id = req.params.articleId;
+    const article = articlesCollection.findOne({articleId:id});
+    const visibility = article.visibility; 
+    await articlesCollection.updateOne({articleId:id},
+    {$set: {visibility:!visibility}});
+    res.send({message: 'Article deleted', payload:article})
 }))
+
+
 //exports
 module.exports = userApp

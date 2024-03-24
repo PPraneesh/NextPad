@@ -9,7 +9,7 @@ const createUser = async (req, res) => {
   const hashedPassword = await bcrypt.hash(user.password, 7); // put salt in env
   user.password = hashedPassword;
   await usersCollection.insertOne(user);
-  return res.send({ message: "User created" });
+  return res.send({ message: "User created", payload: user });
 };
 
 const userLogin = async (req, res) => {

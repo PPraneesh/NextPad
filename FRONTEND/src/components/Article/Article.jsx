@@ -49,7 +49,7 @@ export default function Article(){
                 <h3>Genre: {article.genre}</h3>
                 <p>{article.content}</p>
                 <p>Creater: {article.username}</p>
-            </div>
+            </div> 
             <div className="addcomment">
                 <h3>Comments</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>

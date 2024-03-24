@@ -1,24 +1,67 @@
-.card-img-top{
-    height:100px;
+.userprofilediv{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    height:auto;
 }
-.card{
-    margin-top:70px;
-    margin-right:40px;
-    background: rgba( 255, 255, 255, 0.4 );
-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-backdrop-filter: blur( 6px );
--webkit-backdrop-filter: blur( 6px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+.profilecard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 70px;
+    width: 100%;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
-.mainrow{
-    display:flex;
-    justify-content:space-between;
+
+.card-body{
+    margin: auto;
 }
-#a1{
-    float:left;
+
+.userprofilecard{
+    width: 100%;
+    margin-top: 2rem;
 }
-#a2{
-    float:right;
-    margin-top:100px;
+
+.imggg{
+    position: absolute;
+    width: 200px;
+    top:1rem;
+    right: 3rem;
+    border-radius: 50%;
+    margin: auto;
+}
+
+
+.articlescard{
+    width: 60vw;
+    margin-top: 2rem;
+}
+
+.articleProfile{
+    width: 100%;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    margin-bottom: 2rem;
+    background-color: rgba(239, 28, 246, 0.29);
+    color: rgb(0, 0, 0);
+    background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.btn-modify{
+    margin-right: 1rem;
 }

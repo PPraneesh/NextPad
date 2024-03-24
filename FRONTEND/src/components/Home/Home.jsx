@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 import './Home.css'
 
 export default function Home() {
-    const {loginStatus, setLoginStatus}= useContext(MyContext)
-    const {user, setUser} = useContext(userContext)
+    let {loginStatus, setLoginStatus}= useContext(MyContext)
+    let {user, setUser} = useContext(userContext)
 
     const [articles, setArticles] = useState([])
     useEffect(()=>{
