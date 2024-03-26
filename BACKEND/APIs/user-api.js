@@ -21,7 +21,20 @@ userApp.get('/home',expressAsyncHandler(async(req,res)=>{
     const articles = await articlesCollection.find({visibility:true}).toArray()
     res.send({message:"articles",payload:articles})
 }))
-//
+
+
+//to get user articles
+userApp.get('/user-profile/:username', expressAsyncHandler(async(req,res)=>{
+    const username = req.params.username;
+    let user = await usersCollection.findOne({username:username});
+    let articleIds = user.articles;
+    let articles = []
+    await Promise.all(articleIds.map(async (id) => {
+        const article = await articlesCollection.findOne({ articleId: id });
+        articles.push(article);
+    }));
+    console.log(articles)
+    res.send({message:"user articles",payload:articles})}))
 
 //to get each article
 userApp.get('/home/:articleId',expressAsyncHandler(async(req,res)=>{
@@ -36,12 +49,16 @@ userApp.get('/home/:articleId',expressAsyncHandler(async(req,res)=>{
 
 //to add comments
 userApp.post('/comment/:articleId', expressAsyncHandler(async (req, res) => {
-    const id = (req.params.articleId);
+    const id = req.params.articleId;
     const comment = req.body;
-    let r= await articlesCollection.updateOne({ articleId: id }, { $push: { comments: comment } })
+
+    const result = await articlesCollection.updateOne(
+        { articleId: id },
+        { $push: { comments: { $each: [comment], $position: 0 } } }
+    );
     res.send({ message: "comment added" });
 }));
-
+ 
 
 //creating new articles
 userApp.post('/new-article', expressAsyncHandler(async (req, res) => {
@@ -67,10 +84,15 @@ userApp.put("/modify-article",expressAsyncHandler(async(req,res)=>{
 //soft delete
 userApp.put("/delete-article/:articleId",expressAsyncHandler(async(req,res)=>{
     let id = req.params.articleId;
-    const article = articlesCollection.findOne({articleId:id});
-    const visibility = article.visibility; 
+    console.log(id)
+    let article ={}
+    await articlesCollection.findOne({articleId:id}).then((art)=>{
+        article = art
+    })
+    console.log(article)
+    let vis = article.visibility; 
     await articlesCollection.updateOne({articleId:id},
-    {$set: {visibility:!visibility}});
+    {$set: {visibility:!vis}});
     res.send({message: 'Article deleted', payload:article})
 }))
 

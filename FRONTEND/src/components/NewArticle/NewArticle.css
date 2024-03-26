@@ -19,6 +19,10 @@ textarea:focus, input:focus{
     color: black;
 }
 
+.input-box{
+    margin-bottom: 20px;
+}
+
 .container{
     width: 60vw;
     margin-top: 3rem;

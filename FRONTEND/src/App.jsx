@@ -48,7 +48,7 @@ function App() {
           element: <UserProfile />
          },
          {
-          path: 'user-profile/modify-article',
+          path: 'modify-article/:articleId',
           element: <ModifyArticle />
          }
       ]

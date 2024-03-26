@@ -11,11 +11,11 @@ export default function Navbar() {
         setLoginStatus(false)
         navigate('/')
     }
+    
     return (
         <div className="navbar">
-
                 <div className="left">
-                    <Link to='/user-api/home'>
+                    <Link to={ loginStatus ? '/user-api/home' : '/' }>
                     <h2 className="textt">NextPad</h2>
                     </Link>
                     <input type="text" placeholder='Search Articles...' className='searchbar' />

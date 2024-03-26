@@ -8,7 +8,7 @@ import {userContext} from "../../context-api/userContext"
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const url = "http://localhost:3000/"
+const url = "https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/"
 
 function Login() {
   const { register, handleSubmit } = useForm();

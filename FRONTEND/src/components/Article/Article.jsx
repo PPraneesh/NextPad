@@ -5,13 +5,13 @@ import { userContext } from '../../context-api/userContext';
 import { useForm } from "react-hook-form";
 import { useNavigate,useParams } from 'react-router-dom';
 
-const url = "http://localhost:3000/"
+const url = "https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/"
 
 export default function Article(){
     const { register, handleSubmit } = useForm();
     const [article, setArticle] = useState({});
     const { user, setUser } = useContext(userContext)
-        const [comments, setComments] = useState([{}])
+    let [comments, setComments] = useState([{}])
     let navigate = useNavigate()
     const {articleId} = useParams();
     useEffect(()=>{
@@ -26,16 +26,16 @@ export default function Article(){
     ,[comments])
     console.log("article",article)
 
+
     function onSubmit(data){
         data = {
             ...data,
             username: user.username,
             articleId: articleId
         }
-        setComments([...comments, data])
         axios.post(`${url}user-api/comment/${articleId}`, data)
-            .then(res => {
-                navigate(`/user-api/home/${articleId}`)
+        .then(res => {
+            setComments([...comments,data])
             }).catch(err => {
                 console.log(err)
             }

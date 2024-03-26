@@ -61,3 +61,33 @@
 .btn-modify{
     margin-right: 1rem;
 }
+.user-button{
+    height: 30px;
+    padding: 5px;
+    margin: 3px;
+    background: rgba(0, 149, 255, 0.588);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    color: #333;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+}
+
+.article-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.green-button{
+    background-color: #4caf4fb6;
+    color: white;
+}
+
+.visible{
+    background-color: rgba(255, 0, 0, 0.59);
+}
