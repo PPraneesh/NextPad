@@ -8,9 +8,10 @@ import {userContext} from "../../context-api/userContext"
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const url = "https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/"
+import { urlContext } from "../../context-api/urlContext";
 
 function Login() {
+  const {url} = useContext(urlContext)
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("")
   let {loginStatus, setLoginStatus} = useContext(MyContext)

@@ -5,9 +5,10 @@ import { userContext } from "../../context-api/userContext";
 import { Link } from "react-router-dom";
 import "./Home.css";
 
-const url = "https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/";
+import { urlContext } from "../../context-api/urlContext";
 
 export default function Home() {
+  const {url} = useContext(urlContext)
   // let {loginStatus, setLoginStatus}= useContext(MyContext)
   let { user } = useContext(userContext);
 

@@ -3,9 +3,12 @@ import { userContext } from "../../context-api/userContext"
 import axios from "axios"
 import './UserProfile.css';
 import { useNavigate } from "react-router-dom";
-const url = "https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/"
+
+import { urlContext } from "../../context-api/urlContext";
+
 
 export default function UserProfile() {
+    const {url} = useContext(urlContext)
     let navigate = useNavigate()
     let { user } = useContext(userContext)
     const [userArticles, setUserArticles] = useState([])
