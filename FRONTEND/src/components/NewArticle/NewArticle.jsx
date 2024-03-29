@@ -6,9 +6,12 @@ import './NewArticle.css';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 
-const url = "http://localhost:3000/"
+
+import { urlContext } from "../../context-api/urlContext";
+
 
 export default function NewArticle() {
+    const {url} = useContext(urlContext)
     const { register, handleSubmit } = useForm();
     let { user } = useContext(userContext)
     let navigate = useNavigate()

@@ -11,7 +11,7 @@ Content-Type: application/json
     "article-id":[]
 }
 ###
-POST http://localhost:3000/user-api/login
+POST https://super-space-cod-9rxrq97j96vhr67-3000.app.github.dev/user-api/login
 Content-Type: application/json
 
 {
@@ -22,7 +22,6 @@ Content-Type: application/json
 
 
 ###
-
 POST https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/user-api/new-article
 Content-Type: application/json
 

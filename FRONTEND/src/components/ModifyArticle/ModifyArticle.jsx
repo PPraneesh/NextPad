@@ -4,9 +4,10 @@ import { userContext } from '../../context-api/userContext';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import { urlContext } from "../../context-api/urlContext";
 
-const url = "https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/"
 export default function ModifyArticle() {
+    const {url} = useContext(urlContext)
     const { register, handleSubmit } = useForm();
     let { user } = useContext(userContext)
     let navigate = useNavigate()

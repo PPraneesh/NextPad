@@ -4,10 +4,11 @@ import './Article.css';
 import { userContext } from '../../context-api/userContext';
 import { useForm } from "react-hook-form";
 import { useNavigate,useParams } from 'react-router-dom';
+import { urlContext } from "../../context-api/urlContext";
 
-const url = "https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/"
 
 export default function Article(){
+    const {url} = useContext(urlContext)
     const { register, handleSubmit } = useForm();
     const [article, setArticle] = useState({});
     const { user, setUser } = useContext(userContext)

@@ -6,7 +6,9 @@ import axios from "axios";
 import { MyContext } from "../../context-api/myContext";
 import {userContext} from "../../context-api/userContext"
 
-const url = "https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/"
+
+import { urlContext } from "../../context-api/urlContext";
+
 
 const genres = [
   'Fantasy', 'Humor', 'Mystery', 'Romance', 'Thriller', 'LGBTQ+', 'Horror', 'Sci-fi', 'Paranormal', 'Adventure', 'Poetry', 'Action'
@@ -14,6 +16,7 @@ const genres = [
 
 
 const RegisterForm = () => {
+  const {url} = useContext(urlContext)
   const [selectedGenres, setSelectedGenres] = useState([]);
   const { register, handleSubmit } = useForm();
   const [status,setStatus] = useState(true);
