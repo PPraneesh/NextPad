@@ -76,6 +76,7 @@ userApp.post('/new-article', expressAsyncHandler(async (req, res) => {
 //updating articles
 userApp.put("/modify-article",expressAsyncHandler(async(req,res)=>{
     const modifiedArticle = req.body;
+    delete modifiedArticle._id;
     await articlesCollection.updateOne({articleId:modifiedArticle.articleId},
         {$set: {...modifiedArticle}});
     res.send({message: 'Article modified'})

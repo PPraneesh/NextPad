@@ -1,6 +1,5 @@
 import {useContext, useState, useEffect} from 'react'
 import { useForm } from 'react-hook-form';
-import { userContext } from '../../context-api/userContext';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -9,29 +8,25 @@ import { urlContext } from "../../context-api/urlContext";
 export default function ModifyArticle() {
     const {url} = useContext(urlContext)
     const { register, handleSubmit } = useForm();
-    let { user } = useContext(userContext)
     let navigate = useNavigate()
     let {articleId} = useParams()
     const [article, setArticle] = useState({})
-    const [formData, setFormData] = useState({})
 
 
     useEffect(() => {
         axios.get(url + 'user-api/home/' + articleId).then((response) => {
             setArticle(response.data.payload)
-            setFormData(response.data.payload)
         }).catch((error) => {
             console.log("ERROR IS ", error)
         })
     } , [])
     const onSubmit = data => {  
+        console.log(article)
         data ={
-            articleId: article.articleId,
-            ...data,
-            visibility: article.visibility,
-            comments:article.comments,
-            username: article.username
+            ...article,
+            articleId: article.articleId
         }
+        console.log("dara   ",data)
         axios.put(url+'user-api/modify-article', data)
             .then(res => {
                 console.log(res.data)
@@ -44,7 +39,10 @@ export default function ModifyArticle() {
 ///
 const handleChange = (e) => {
     let { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setArticle({ ...article, [name]: value }); 
+    console.log(article)
+    // setFormData({ ...formData, [name]: value });
+    // console.log("form mmmmm",formData)
 };
 ///
     return (
@@ -54,7 +52,7 @@ const handleChange = (e) => {
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <button className='nav-button' type="submit">
-                    Modify Posst
+                    Modify Post
                 </button>
                 <div className="input-box">
                 <input {...register("title")} type="text" placeholder="Title" required value={article.title} onChange={handleChange} />

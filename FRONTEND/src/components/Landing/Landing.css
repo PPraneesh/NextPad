@@ -4,13 +4,9 @@
     height: 100%;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
-
+    margin: 4rem auto;
+    padding: 0 2rem;
 }
-
-/* h1{
-    margin-right: 4rem;
-} */
 .land-btn {
     background-color: black;
     color: white;
@@ -21,14 +17,24 @@
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
-
-/* .landing .container .btn:hover {
-    background-color: rgba(172, 108, 173, 0.66);
-}    */
-
+.land-left > h1,button {
+    margin: 1rem 0;
+}
+.land-left > p {
+    margin: 0;
+}
 .land-left {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: left;
+    align-items: center;   
+}
+.land-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.land-right > img {
+    width: 40vw;
+    height: auto;
 }

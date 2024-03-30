@@ -88,7 +88,7 @@ const RegisterForm = () => {
             <label htmlFor="genre">Genre</label>
             <div className='checkboxgroup'>
               {genres.map((genre,index) => (
-                <div className="checkbox-wrapper-47" key={genre}>
+                <div className="checkbox-wrapper-47 label-checkbox" key={genre}>
                   <input
                     type="checkbox"
                     value={genre}

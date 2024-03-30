@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useContext} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 import './Article.css';
 import { userContext } from '../../context-api/userContext';
@@ -16,7 +16,6 @@ export default function Article(){
     let navigate = useNavigate()
     const {articleId} = useParams();
     useEffect(()=>{
-        console.log("articleId",articleId)
         axios.get(url+"user-api/home/"+articleId).then(res => {
             setArticle(res.data.payload)
         })
@@ -25,7 +24,6 @@ export default function Article(){
         })
     }
     ,[comments])
-    console.log("article",article)
 
 
     function onSubmit(data){
@@ -56,10 +54,10 @@ export default function Article(){
             <div className="addcomment">
                 <h3>Comments</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="comment-box">
+                    <div className="input-box">
                         <input {...register("comment")} type="text" placeholder="Comment" required />
+                    <button className="comment-btn" type='submit'>Comment</button>
                     </div>
-                    <button type='submit'>Comment</button>
                 </form>
                 <br />
             </div>
