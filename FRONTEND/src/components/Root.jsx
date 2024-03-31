@@ -9,7 +9,7 @@ import { Outlet } from "react-router-dom";
 export default function Root(){
     const [loginStatus, setLoginStatus] = useState(false);
     const [user, setUser] = useState({})
-    const [url,setUrl] = useState("http://localhost:3000/")
+    const [url,setUrl] = useState("https://super-space-cod-9rxrq97j96vhr67-6969.app.github.dev/")
     
     return(
         <div>

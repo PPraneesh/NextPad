@@ -8,9 +8,14 @@ export default function Navbar() {
     const { loginStatus, setLoginStatus } = useContext(MyContext)
     let navigate = useNavigate()
     function handleLogout() {
+        sessionStorage.removeItem('token')
+        sessionStorage.removeItem('user')
         setLoginStatus(false)
         navigate('/')
     }
+    //remove token from local storage when logged out in handleLogout
+    //if token is valid == loginstatus=true else false
+    //login -onclick verify token, if token is present and valid , navigate to home page 
     
     return (
         <div className="navbar">

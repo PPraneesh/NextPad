@@ -32,7 +32,7 @@ app.use((err, req,res, next)=>{
 })
 
 
-const port = 3000;
+const port = 6969;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

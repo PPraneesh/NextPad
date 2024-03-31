@@ -3,7 +3,7 @@ import { userContext } from "../../context-api/userContext"
 import axios from "axios"
 import './UserProfile.css';
 import { useNavigate } from "react-router-dom";
-
+import { axiosWithToken } from '../../axiosWithToken';
 import { urlContext } from "../../context-api/urlContext";
 
 
@@ -13,7 +13,7 @@ export default function UserProfile() {
     let { user } = useContext(userContext)
     const [userArticles, setUserArticles] = useState([])
     useEffect(() => {
-        axios.get(url + 'user-api/user-profile/' + user.username).then((response) => {
+        axiosWithToken.get(url + 'user-api/user-profile/' + user.username).then((response) => {
             setUserArticles(response.data.payload)
 
         }).catch((error) => {
@@ -22,8 +22,8 @@ export default function UserProfile() {
     }, [])
 
     async function handleDelete(articleId, article) {
-        await axios.put(`${url}user-api/delete-article/${articleId}`);
-        await axios.get(url + 'user-api/user-profile/' + user.username).then((response) => {
+        await axiosWithToken.put(`${url}user-api/delete-article/${articleId}`);
+        await axiosWithToken.get(url + 'user-api/user-profile/' + user.username).then((response) => {
             setUserArticles(response.data.payload)
         }).catch((error) => {
             console.log("ERROR IS ", error)

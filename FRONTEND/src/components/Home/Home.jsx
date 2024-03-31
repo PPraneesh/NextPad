@@ -2,37 +2,51 @@ import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 // import { MyContext } from '../../context-api/myContext';
 import { userContext } from "../../context-api/userContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Home.css";
-
+import { axiosWithToken } from '../../axiosWithToken';
 import { urlContext } from "../../context-api/urlContext";
 
 export default function Home() {
-  const {url} = useContext(urlContext)
+  const { url } = useContext(urlContext)
   // let {loginStatus, setLoginStatus}= useContext(MyContext)
-  let { user } = useContext(userContext);
+  let [user, setUser] = useState([])
+  const navigate = useNavigate()
 
   const [articles, setArticles] = useState([]);
+
   useEffect(() => {
-    axios
-      .get(url + "user-api/home")
+    setUser(JSON.parse(sessionStorage.getItem('user')))
+  }, [])
+
+  useEffect(() => {
+    console.log(user)
+    axiosWithToken.get(url + "user-api/home")
       .then((response) => {
-        setArticles(response.data.payload);
+        console.log(response.data)
+        console.log("user", user)
+        if (response.data.message === 'Unauthorized access') {
+          navigate('/user-api/login')
+        }
+        else {
+          setArticles(response.data.payload)
+        }
       })
       .catch((error) => {
         console.log("ERROR IS ", error);
       });
   }, []);
+
   return (
     <div className="homediv">
       <h1>hey {user.name}</h1>
       <div className="page">
-        {user.genre.map((genre, index) => {
+        { user.genre && user.genre.map((genre, index) => {
           return (
             <div key={index}>
               <h3>{genre} articles</h3>
-              <div  className="genre-article-cont">
-                {articles.map((article) => {
+              <div className="genre-article-cont">
+                {articles && articles.map((article) => {
                   if (article.genre === genre) {
                     return (
                       <div className="article" key={article.articleId}>
@@ -51,7 +65,7 @@ export default function Home() {
         <div>
           <h3>All articles</h3>
           <div className="genre-article-cont">
-            {articles.map((article) => (
+            {articles && articles.map((article) => (
               <div className="article" key={article.articleId}>
                 <Link to={`/user-api/home/${article.articleId}`}>
                   <h4>{article.title}</h4>
@@ -62,6 +76,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <h1>hai</h1>
     </div>
   );
 }
