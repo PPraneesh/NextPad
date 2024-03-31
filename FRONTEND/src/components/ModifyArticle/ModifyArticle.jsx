@@ -2,6 +2,7 @@ import {useContext, useState, useEffect} from 'react'
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import { axiosWithToken } from '../../axiosWithToken';
 
 import { urlContext } from "../../context-api/urlContext";
 
@@ -14,7 +15,7 @@ export default function ModifyArticle() {
 
 
     useEffect(() => {
-        axios.get(url + 'user-api/home/' + articleId).then((response) => {
+        axiosWithToken.get(url + 'user-api/home/' + articleId).then((response) => {
             setArticle(response.data.payload)
         }).catch((error) => {
             console.log("ERROR IS ", error)
@@ -27,7 +28,7 @@ export default function ModifyArticle() {
             articleId: article.articleId
         }
         console.log("dara   ",data)
-        axios.put(url+'user-api/modify-article', data)
+        axiosWithToken.put(url+'user-api/modify-article', data)
             .then(res => {
                 console.log(res.data)
                 navigate('/user-api/home/'+articleId)

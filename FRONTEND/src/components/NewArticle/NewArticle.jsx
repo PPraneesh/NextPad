@@ -5,6 +5,7 @@ import axios from 'axios';
 import './NewArticle.css';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
+import { axiosWithToken } from '../../axiosWithToken';
 
 
 import { urlContext } from "../../context-api/urlContext";
@@ -24,7 +25,7 @@ export default function NewArticle() {
             username: user.username
         }
         console.log(data)
-        axios.post(url+'user-api/new-article', data)
+        axiosWithToken.post(url+'user-api/new-article', data)
             .then(res => {
                 console.log(res.data)
                 navigate('/user-api/home')

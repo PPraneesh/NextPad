@@ -1,5 +1,5 @@
 import {useContext,useState} from "react";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { FaUser, FaLock } from "react-icons/fa";
 import './LoginForm.css';
 import axios from "axios"
@@ -27,6 +27,10 @@ function Login() {
       else {
         setLoginStatus(true)
         setUser(res.data.user)
+        //set login token
+        sessionStorage.setItem("token", res.data.token)//set token in local storage
+        sessionStorage.setItem('user', JSON.stringify(res.data.user));
+        console.log("login token ",res.data.token)
         navigate('/user-api/home')
       }
     })

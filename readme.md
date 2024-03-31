@@ -1,3 +1,12 @@
+goals
+- check whether reload working on all routes or not
+- navbar login/logout issue
+- is token is valid, press login in landing - then direct login, no username and pass ask
+- when u have no token and try to navigate to /user-api/home u shud be redirected to login and tell him to login :)
+- footer(maybe)
+- css maybe
+- use local storage
+
 routing
 / - login or register
 /login

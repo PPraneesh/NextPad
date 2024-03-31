@@ -5,6 +5,7 @@ import { userContext } from '../../context-api/userContext';
 import { useForm } from "react-hook-form";
 import { useNavigate,useParams } from 'react-router-dom';
 import { urlContext } from "../../context-api/urlContext";
+import { axiosWithToken } from '../../axiosWithToken';
 
 
 export default function Article(){
@@ -16,7 +17,7 @@ export default function Article(){
     let navigate = useNavigate()
     const {articleId} = useParams();
     useEffect(()=>{
-        axios.get(url+"user-api/home/"+articleId).then(res => {
+        axiosWithToken.get(url+"user-api/home/"+articleId).then(res => {
             setArticle(res.data.payload)
         })
         .catch(err => {
@@ -32,7 +33,7 @@ export default function Article(){
             username: user.username,
             articleId: articleId
         }
-        axios.post(`${url}user-api/comment/${articleId}`, data)
+        axiosWithToken.post(`${url}user-api/comment/${articleId}`, data)
         .then(res => {
             setComments([...comments,data])
             }).catch(err => {
