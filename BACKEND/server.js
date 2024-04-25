@@ -10,7 +10,7 @@ require('dotenv').config();
 
 app.use(express.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, '../FRONTEND/build')));
+app.use(express.static(path.join(__dirname, '../FRONTEND/dist')));
 
 mongoClient.connect(process.env.MONGO_URI).then((client) => {
   const db = client.db("webathonDB");
