@@ -3,6 +3,9 @@ const app = express();
 const mongoClient = require("mongodb").MongoClient;
 const path = require('path');
 const cors = require('cors');
+app.use(cors({
+  origin: process.env.FRONTEND_URL
+}))
 require('dotenv').config();
 
 app.use(express.json());
@@ -32,7 +35,7 @@ app.use((err, req,res, next)=>{
 })
 
 
-const port = 6969;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
