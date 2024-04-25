@@ -4,7 +4,7 @@ const mongoClient = require("mongodb").MongoClient;
 const path = require('path');
 const cors = require('cors');
 app.use(cors({
-  origin: process.env.FRONTEND_URL
+  origin: '*'
 }))
 require('dotenv').config();
 
