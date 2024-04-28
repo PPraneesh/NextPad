@@ -14,8 +14,9 @@ export default function ModifyArticle() {
     const [article, setArticle] = useState({})
 
 
+    const api = axiosWithToken()
     useEffect(() => {
-        axiosWithToken.get(url + 'user-api/home/' + articleId).then((response) => {
+        api.get(url + 'user-api/home/' + articleId).then((response) => {
             setArticle(response.data.payload)
         }).catch((error) => {
             console.log("ERROR IS ", error)
@@ -28,7 +29,7 @@ export default function ModifyArticle() {
             articleId: article.articleId
         }
         console.log("dara   ",data)
-        axiosWithToken.put(url+'user-api/modify-article', data)
+        api.put(url+'user-api/modify-article', data)
             .then(res => {
                 console.log(res.data)
                 navigate('/user-api/home/'+articleId)

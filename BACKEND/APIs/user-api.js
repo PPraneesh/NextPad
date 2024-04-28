@@ -19,7 +19,9 @@ userApp.use((req,res,next)=>{
 // to get articles
 userApp.get('/home',verifyToken,expressAsyncHandler(async(req,res)=>{
     const articles = await articlesCollection.find({visibility:true}).toArray()
-    res.send({message:"articles",payload:articles})
+    .then((articles)=>{
+        return res.send({message:"articles ",payload:articles})
+    })
 }))
 
 

@@ -28,7 +28,7 @@ function Login() {
         setLoginStatus(true)
         setUser(res.data.user)
         //set login token
-        sessionStorage.setItem("token", res.data.token)//set token in local storage
+        sessionStorage.setItem('token', res.data.token)//set token in local storage
         sessionStorage.setItem('user', JSON.stringify(res.data.user));
         console.log("login token ",res.data.token)
         navigate('/user-api/home')

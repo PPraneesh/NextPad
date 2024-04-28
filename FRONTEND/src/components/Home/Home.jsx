@@ -17,25 +17,21 @@ export default function Home() {
 
   useEffect(() => {
     setUser(JSON.parse(sessionStorage.getItem('user')))
+    const api = axiosWithToken()
+    api.get(url + "user-api/home")
+    .then((response) => {
+      if (response.data.message === 'Unauthorized access') {
+        navigate('/user-api/login')
+      }
+      else {
+        console.log("articles ",response.data.payload)
+        setArticles(response.data.payload)
+      }
+    })
+    .catch((error) => {
+      console.log("ERROR IS ", error);
+    });
   }, [])
-
-  useEffect(() => {
-    console.log(user)
-    axiosWithToken.get(url + "user-api/home")
-      .then((response) => {
-        console.log(response.data)
-        console.log("user", user)
-        if (response.data.message === 'Unauthorized access') {
-          navigate('/user-api/login')
-        }
-        else {
-          setArticles(response.data.payload)
-        }
-      })
-      .catch((error) => {
-        console.log("ERROR IS ", error);
-      });
-  }, []);
 
   return (
     <div className="homediv">

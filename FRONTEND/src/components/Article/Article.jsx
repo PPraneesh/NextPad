@@ -17,7 +17,8 @@ export default function Article(){
     let navigate = useNavigate()
     const {articleId} = useParams();
     useEffect(()=>{
-        axiosWithToken.get(url+"user-api/home/"+articleId).then(res => {
+        const api = axiosWithToken()
+        api.get(url+"user-api/home/"+articleId).then(res => {
             setArticle(res.data.payload)
         })
         .catch(err => {

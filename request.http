@@ -78,7 +78,7 @@ Content-Type: application/json
 }
 ###
 
-GET http://localhost:3000/user-api/home
+GET http://localhost:5000/user-api/home
 
 ###
 

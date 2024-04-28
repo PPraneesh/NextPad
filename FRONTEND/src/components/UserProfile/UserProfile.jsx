@@ -12,8 +12,9 @@ export default function UserProfile() {
     let navigate = useNavigate()
     let { user } = useContext(userContext)
     const [userArticles, setUserArticles] = useState([])
+    const api = axiosWithToken()
     useEffect(() => {
-        axiosWithToken.get(url + 'user-api/user-profile/' + user.username).then((response) => {
+        api.get(url + 'user-api/user-profile/' + user.username).then((response) => {
             setUserArticles(response.data.payload)
 
         }).catch((error) => {
@@ -22,8 +23,8 @@ export default function UserProfile() {
     }, [])
 
     async function handleDelete(articleId, article) {
-        await axiosWithToken.put(`${url}user-api/delete-article/${articleId}`);
-        await axiosWithToken.get(url + 'user-api/user-profile/' + user.username).then((response) => {
+        await api.put(`${url}user-api/delete-article/${articleId}`);
+        await api.get(url + 'user-api/user-profile/' + user.username).then((response) => {
             setUserArticles(response.data.payload)
         }).catch((error) => {
             console.log("ERROR IS ", error)

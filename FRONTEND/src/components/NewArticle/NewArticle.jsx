@@ -25,7 +25,8 @@ export default function NewArticle() {
             username: user.username
         }
         console.log(data)
-        axiosWithToken.post(url+'user-api/new-article', data)
+        const api = axiosWithToken()
+        api.post(url+'user-api/new-article', data)
             .then(res => {
                 console.log(res.data)
                 navigate('/user-api/home')
