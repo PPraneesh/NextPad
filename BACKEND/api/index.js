@@ -3,13 +3,12 @@ const app = express();
 const mongoClient = require("mongodb").MongoClient;
 const path = require('path');
 const cors = require('cors');
-app.use(cors({
-  origin: '*'
-}))
 require('dotenv').config();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: '*'
+}))
 // app.use(express.static(path.join(__dirname, './dist')));
 
 mongoClient.connect(process.env.MONGO_URI).then((client) => {
