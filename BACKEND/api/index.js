@@ -7,9 +7,8 @@ require('dotenv').config();
 
 app.use(express.json());
 app.use(cors({
-  origin: true
+  origin: "https://nextpad.vercel.app"
 }))
-// app.use(express.static(path.join(__dirname, './dist')));
 
 mongoClient.connect(process.env.MONGO_URI).then((client) => {
   const db = client.db("webathonDB");
