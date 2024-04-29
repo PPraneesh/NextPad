@@ -7,7 +7,9 @@ require('dotenv').config();
 
 app.use(express.json());
 app.use(cors({
-  origin: "https://nextpad.vercel.app"
+  origin: "https://nextpad.vercel.app",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: ['Content-Type', 'Authorization']
 }))
 
 mongoClient.connect(process.env.MONGO_URI).then((client) => {
