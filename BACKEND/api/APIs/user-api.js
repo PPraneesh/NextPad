@@ -1,6 +1,6 @@
 const express = require('express')
 const userApp = express.Router()
-const {createUser,userLogin} = require('./Util.js')
+const { createUser, userLogin } = require('./Util.js')
 const expressAsyncHandler = require('express-async-handler')
 const verifyToken = require('./verifyToken.js')
 

@@ -12,7 +12,7 @@ export default function Home() {
   // let {loginStatus, setLoginStatus}= useContext(MyContext)
   let [user, setUser] = useState([])
   const navigate = useNavigate()
-
+  const sessionToken = sessionStorage.getItem('token')
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -31,6 +31,10 @@ export default function Home() {
     .catch((error) => {
       console.log("ERROR IS ", error);
     });
+  }, [])
+
+  useEffect(()=>{
+    if(!sessionToken) navigate('/user-api/login')
   }, [])
 
   return (

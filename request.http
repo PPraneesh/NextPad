@@ -11,17 +11,12 @@ Content-Type: application/json
     "article-id":[]
 }
 ###
-POST http://localhost:5000/user-api/login
+POST https://next-pad-backend.vercel.app/user-api/login
 Content-Type: application/json
 
 {
     "username": "ppp",
-    "firstName": "test",
-    "email": "test@test.in",
-    "password": "ppp",
-    "user-age":18,
-    "user-genre" : ["horror","comedy","action"],
-    "article-id":[]
+    "password": "ppp"
 }
 ###
 POST https://super-space-cod-9rxrq97j96vhr67-3000.app.github.dev/user-api/login
