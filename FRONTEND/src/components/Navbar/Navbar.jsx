@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { MyContext } from '../../context-api/myContext';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
@@ -16,7 +16,13 @@ export default function Navbar() {
     //remove token from local storage when logged out in handleLogout
     //if token is valid == loginstatus=true else false
     //login -onclick verify token, if token is present and valid , navigate to home page 
-    
+    useEffect(() => {
+        const sessionToken = sessionStorage.getItem('token')
+        if (sessionToken) {
+            setLoginStatus(true)
+        }
+    }, [])  
+     
     return (
         <div className="navbar">
                 <div className="left">

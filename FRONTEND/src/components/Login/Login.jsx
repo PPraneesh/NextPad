@@ -1,4 +1,4 @@
-import {useContext,useState} from "react";
+import {useContext,useState, useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { FaUser, FaLock } from "react-icons/fa";
 import './LoginForm.css';
@@ -17,6 +17,15 @@ function Login() {
   let {loginStatus, setLoginStatus} = useContext(MyContext)
   let {user, setUser} = useContext(userContext)
   let navigate = useNavigate();
+
+
+  useEffect(()=>{
+    const sessionToken = sessionStorage.getItem('token')
+    if(sessionToken){
+      navigate('/user-api/home')
+    } 
+  },[])
+
   const onSubmit = data => {
     axios.post(url+'user-api/login', data)
     .then(res => {
@@ -27,8 +36,7 @@ function Login() {
       else {
         setLoginStatus(true)
         setUser(res.data.user)
-        //set login token
-        sessionStorage.setItem('token', res.data.token)//set token in local storage
+        sessionStorage.setItem('token', res.data.token)
         sessionStorage.setItem('user', JSON.stringify(res.data.user));
         console.log("login token ",res.data.token)
         navigate('/user-api/home')

@@ -6,11 +6,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 app.use(express.json());
-app.use(cors({
-  origin: "https://nextpad.vercel.app",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: ['Content-Type', 'Authorization']
-}))
+app.use(cors())
 
 mongoClient.connect(process.env.MONGO_URI).then((client) => {
   const db = client.db("webathonDB");
