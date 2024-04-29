@@ -7,7 +7,7 @@ require('dotenv').config();
 
 app.use(express.json());
 app.use(cors({
-  origin: '*'
+  origin: true
 }))
 // app.use(express.static(path.join(__dirname, './dist')));
 
