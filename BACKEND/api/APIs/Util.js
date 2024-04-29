@@ -15,6 +15,7 @@ const createUser = async (req, res) => {
 const userLogin = async (req, res) => {
   let usersCollection = req.app.get("usersCollection");
   const userCred = req.body;
+  console.log(userCred)
   const dbuser = await usersCollection.findOne({ username: userCred.username });
   if (dbuser === null) return res.send({ message: "Invalid username" });
   else {
