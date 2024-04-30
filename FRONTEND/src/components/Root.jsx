@@ -9,7 +9,7 @@ import { Outlet } from "react-router-dom";
 export default function Root(){
     const [loginStatus, setLoginStatus] = useState(false);
     const [user, setUser] = useState({})
-    const [url,setUrl] = useState("https://nextpad-backend.vercel.app/")
+    const [url,setUrl] = useState("https://nextpadbackend.vercel.app/")
     
     return(
         <div>
