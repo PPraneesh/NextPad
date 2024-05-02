@@ -1,22 +1,14 @@
 const express = require("express");
 const app = express();
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const mongoClient = require("mongodb").MongoClient;
 const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
 
 app.use(express.json());
 app.use(cors())
-const client = new MongoClient(process.env.MONGODB_URI, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
-async function run() {
-  try {
-    await client.connect();
+
+mongoClient.connect(process.env.MONGODB_URI).then((client) => {
   const db = client.db("webathonDB");
   const usersCollection = db.collection("users");
   const articlesCollection = db.collection("articles");
@@ -24,13 +16,11 @@ async function run() {
   app.set("usersCollection", usersCollection);
   app.set("articlesCollection", articlesCollection);
   console.log("DB conncetion established");
-}
-catch(err){
-  console.log(err);
+})
+.catch((err)=>{
+    console.log('Error connecting DB ', err);
+});
 
-}
-}
-run().catch(console.dir);
 
 const userApp = require("./APIs/user-api.js");
 
@@ -45,5 +35,3 @@ const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
-module.exports = app;
