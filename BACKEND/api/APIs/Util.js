@@ -16,7 +16,8 @@ const userLogin = async (req, res) => {
   let usersCollection = req.app.get("usersCollection");
   const userCred = req.body;
   console.log(userCred)
-  const dbuser = await usersCollection.findOne({ username: userCred.username });
+  await usersCollection.findOne({ username: userCred.username })
+  .then(async (dbuser)=>{
   if (dbuser === null) return res.send({ message: "Invalid username" });
   else {
     let status = await bcrypt.compare(userCred.password, dbuser.password);
@@ -29,6 +30,9 @@ const userLogin = async (req, res) => {
       delete dbuser.password;
       res.send({ message: "Login success", token: signedToken, user: dbuser });
     }
-  }
+  }})
+  .catch((err)=>{
+    res.send({ message: "db error", error: err });
+  });
 };
 module.exports = { createUser, userLogin };
