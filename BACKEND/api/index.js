@@ -27,7 +27,7 @@ const userApp = require("./APIs/user-api.js");
 app.use("/user-api", userApp);
 
 app.use((err, req,res, next)=>{
-        res.send({message:err.message})
+        res.send({message:"errrrr "+err.message})
 })
 
 
