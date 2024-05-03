@@ -8,7 +8,11 @@ require('dotenv').config();
 app.use(express.json());
 app.use(cors())
 
-mongoClient.connect(process.env.MONGODB_URI).then((client) => {
+mongoClient.connect(process.env.MONGODB_URI,{
+  connectTimeoutMS: 30000, // 30 seconds
+  socketTimeoutMS: 30000    // 30 seconds
+})
+  .then((client) => {
   const db = client.db("webathonDB");
   const usersCollection = db.collection("users");
   const articlesCollection = db.collection("articles");
