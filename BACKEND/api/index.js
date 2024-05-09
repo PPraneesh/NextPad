@@ -29,7 +29,9 @@ mongoClient.connect(process.env.MONGODB_URI,{
 const userApp = require("./APIs/user-api.js");
 
 app.use("/user-api", userApp);
-
+app.get("/",(req,res)=>{
+  res.send({message:"You found the backend of the webathon, you can always test it..."})
+})
 app.use((err, req,res, next)=>{
         res.send({message:"errrrr "+err.message})
 })

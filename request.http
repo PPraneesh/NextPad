@@ -26,9 +26,6 @@ Content-Type: application/json
     "username": "ppp",
     "password": "ppp"
 }   
-
-
-
 ###
 POST https://potential-space-potato-9vr44vj9jpq36qw-3000.app.github.dev/user-api/new-article
 Content-Type: application/json
@@ -63,7 +60,7 @@ Content-Type: application/json
 
 {
     "articleId": 1711098602 ,
-    "articleName": "fuckin Legends",
+    "articleName": " Legends",
     "articleDescription": "Urban legends are contemporary folklore that are told as true stories. Learn about urban legends and read about urban legends at HowStuffWorks.",
     "content":"lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla nec purus feugiat, vestibulum nunc id, tincidunt nunc . lorem30",   
     "username" : "test",
