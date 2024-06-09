@@ -11,7 +11,6 @@ app.use(cors())
 mongoClient.connect(process.env.MONGODB_URI,{
   connectTimeoutMS: 60000, 
   socketTimeoutMS: 60000 ,
-  keepAlive: true, 
 })
   .then((client) => {
   const db = client.db("webathonDB");
