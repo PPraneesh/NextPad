@@ -25,3 +25,4 @@ The users can comment on author's work
 - Any contributions are accepted, make sure your contribution is working well and not creating an bug..
 ## contributors
 ### [karthikeya](https://karthikeyaveruturi.vercel.app)
+### Rishit Sura
